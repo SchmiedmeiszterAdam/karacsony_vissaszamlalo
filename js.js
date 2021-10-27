@@ -11,7 +11,7 @@ $(function () {
         let kul = karacsony - datum
         var kari = Math.floor(kul / egyNap)
 
-        let ora = 24 - datum.getHours()
+        let ora = 23 - datum.getHours()
         let perc = 60 - datum.getMinutes()
         
 

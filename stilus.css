@@ -40,9 +40,20 @@ main{
     justify-content: space-evenly;
 }
 #ido-kijelzo > *{
-    width: fit-content;
-    height: fit-content;
+    width: 200px;
+    height: 100px;
     text-align: center;
+}
+.pulzalas{
+    animation: pulzal 0.9s;
+}
+@keyframes pulzal {
+    0%{
+        font-size:200%;
+    }
+    50%{
+        font-size: 250%;
+    }
 }
 @media screen and (max-width:450px) {
     #ido-kijelzo{

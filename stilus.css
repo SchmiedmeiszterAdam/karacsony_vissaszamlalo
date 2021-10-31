@@ -13,6 +13,11 @@
     z-index: -2;
     transform: translateX(calc((100% - 100vw) / 2));
   }
+  #myAudio{
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
 body{
     width: 100vw;
     height: 100vh;

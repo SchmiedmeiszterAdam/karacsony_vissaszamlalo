@@ -14,6 +14,16 @@ $(document).ready(function () {
       mehet()
     }
   });
+  $('body').keyup(function(e){
+    szamlalo = 0
+    keveres(zenek)
+    if(e.keyCode == 32){
+      audio.pause();
+      audio.currentTime = 0;
+      mehet()
+    }
+ });
+
   function mehet() {
     audio = new Audio(zenek[szamlalo])
     audio.addEventListener("loadedmetadata", function(_event) {

@@ -2,8 +2,6 @@ $(function () {
     //idoMeghatarozas()
     setInterval(idoMeghatarozas, 1000)
     function idoMeghatarozas() {
-        $("#masodperc").removeClass('pulzalas')
-        setTimeout(function(){$("#masodperc").addClass('pulzalas')},100)
         const datum = new Date()
         const egyNap = 1000 * 60 * 60 * 24;
         let ev = datum.getFullYear()
@@ -16,19 +14,20 @@ $(function () {
         
         let ora = 23 - datum.getHours()
         let perc = 59 - datum.getMinutes()
-        
         let masdoperc = 59 - datum.getSeconds()
+        $("#masodperc").addClass('pulzalas')
+        setTimeout(function(){$("#masodperc").removeClass('pulzalas')},900)
         if(masdoperc === 59){
             $("#perc").addClass('pulzalas')
-            setTimeout(function(){$("#perc").removeClass('pulzalas')},1000)
+            setTimeout(function(){$("#perc").removeClass('pulzalas')},900)
         }
-        if(perc === 59){
+        if(perc === 0 && masdoperc === 59){
             $("#ora").addClass('pulzalas')
-            setTimeout(function(){$("#ora").removeClass('pulzalas')},1000)
+            setTimeout(function(){$("#ora").removeClass('pulzalas')},900)
         }
-        if(ora === 23){
+        if(ora === 0 && perc === 0 && masdoperc === 59){
             $("#nap").addClass('pulzalas')
-            setTimeout(function(){$("#nap").removeClass('pulzalas')},1000)
+            setTimeout(function(){$("#nap").removeClass('pulzalas')},900)
         }
         if (masdoperc < 10) {
             masdoperc = '0' + masdoperc

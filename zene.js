@@ -1,7 +1,8 @@
 const zenek = []
 let hossz;
 let szamlalo = 0
-var audio
+var idozit
+var audio = new Audio()
 $(document).ready(function () {
   $.ajax({
     url: "zenek",
@@ -14,24 +15,56 @@ $(document).ready(function () {
       mehet()
     }
   });
-  $('body').keyup(function(e){
-    szamlalo = 0
-    keveres(zenek)
-    if(e.keyCode == 32){
-      audio.pause();
-      audio.currentTime = 0;
-      mehet()
-    }
- });
+  $('body').keyup(function (e) {
+    switch (e.which) {
+      case 32:
+        szamlalo = 0
+        leallit()
+        mehet()
+        break;
 
+      case 37:
+        if (szamlalo > 0) {
+          leallit()
+          szamlalo--;
+          clearTimeout(idozit)
+          mehet()
+        }
+        break;
+
+      case 38:
+        if (audio.volume < 1) {
+          audio.volume += 0.05
+        }
+        break;
+
+      case 39:
+        if (szamlalo < zenek.length - 1) {
+          leallit()
+          szamlalo++;
+          clearTimeout(idozit)
+          mehet()
+        }
+        break;
+
+      case 40:
+        if (audio.volume > 0.1) {
+          audio.volume -= 0.05
+        }
+        break;
+    }
+  });
+  function leallit() {
+    audio.pause();
+    audio.currentTime = 0;
+  }
   function mehet() {
     audio = new Audio(zenek[szamlalo])
-    audio.addEventListener("loadedmetadata", function(_event) {
+    audio.addEventListener("loadedmetadata", function (_event) {
       hossz = audio.duration;
-      setTimeout(mehet,(hossz * 1000))
+      idozit = setTimeout(function () { szamlalo++; mehet() }, (hossz * 1000))
     });
     var playPromise = audio.play()
-    szamlalo++
   }
 });
 

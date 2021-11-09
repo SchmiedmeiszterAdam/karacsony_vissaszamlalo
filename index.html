@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stilus.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="zene.js"></script>
-    <script src="js.js" type="text/javascript"></script>
+    <!-- <script src="zene.js"></script> -->
+    <script src="ido.js" type="text/javascript"></script>
+    <script src="js.js"></script>
     <title>Karácsony</title>
 </head>
+
 <body>
-    <main> 
+    <main id="main">
         <video autoplay muted loop id="myVideo">
-            <source src="hatter.mp4" type="video/mp4">
-          </video>
+            <source src="hatter2.mp4" type="video/mp4">
+        </video>
         <div id="ido-tarolo">
             <div id="ido-kijelzo">
-                <div id = "nap-div">
+                <div id="nap-div">
                     <p>Nap</p>
-                    <h1 id = "nap"></h1>
+                    <h1 id="nap"></h1>
                 </div>
-                <div id = "ora-div">
+                <div id="ora-div">
                     <p>Óra</p>
-                    <h1 id = "ora"></h1>
+                    <h1 id="ora"></h1>
                 </div>
-                <div id = "perc-div">
+                <div id="perc-div">
                     <p>Perc</p>
-                    <h1 id = "perc"></h1>
+                    <h1 id="perc"></h1>
                 </div>
-                <div id = "masodperc-div">
+                <div id="masodperc-div">
                     <p>Másodperc</p>
-                    <h1 id = "masodperc"></h1>
+                    <h1 id="masodperc"></h1>
                 </div>
             </div>
         </div>
+        <nav>
+            <div id="kikapcsolo-tarolo">
+                <input type="button" value="Számláló kikapcsolása" id="kikapcsolas">
+            </div>
+        </nav>
+
     </main>
 </body>
+
 </html>
